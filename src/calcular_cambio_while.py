@@ -10,37 +10,36 @@ Tu respuesta debe usar el menor número posible usandp primero cuantas más mone
 de 5 cénts posible, luego de 2 y finalmente de 1 (para sumar el total)
 '''
 def calcular_cambio(pago):
-    numeroDeMonedas = [0, 0, 0]
+    numero_de_monedas = [0, 0, 0]
 
     assert isinstance(pago, int)
 
     if pago <= 0:
-        return numeroDeMonedas
+        return numero_de_monedas
     
-    tiposDeMonedas = [5, 2, 1]
+    tipos_de_monedas = [5, 2, 1]
 
     monedaIndex = 0
-    while pago != 0:
-        numeroDeMonedas[monedaIndex] = pago // tiposDeMonedas[monedaIndex]
-        pago = pago % tiposDeMonedas[monedaIndex]
+    while pago > 0:
+        numero_de_monedas[monedaIndex] = pago // tipos_de_monedas[monedaIndex]
+        pago %= tipos_de_monedas[monedaIndex]
         monedaIndex += 1
-    return numeroDeMonedas
+    return numero_de_monedas
 assert calcular_cambio(29) == [5,2,0]
 assert calcular_cambio(8) == [1,1,1]
+assert calcular_cambio(5) == [1,0,0]
+assert calcular_cambio(235) == [47,0,0]
 assert calcular_cambio(0) == [ 0,0,0]
 assert calcular_cambio(-1) == [0,0,0]
 
-
-#print(calcular_cambio(8))
-
-#>>> (1, 1, 1)   una de 5 cénts, una de 2 cénts y una de 1 cént.
-#print(calcular_cambio(5))
-#assert calcular_cambio(5) == [1,0,0]
-#>>> (1, 0, 0)   una 5 cénts, ninguna de 2 cénts y ninguna de 1 cént.
-#print(calcular_cambio())
-
-#>>> (5, 2, 0)   cinco de 5 cénts, dos de 2 cénts y ninguna de 1 cént.
-#print(calcular_cambio(0))
-
-#>>> [0, 0, 0]  ninguna de 5 cénts, ninguna de 2 cénts y 1 de cénts.
-#'''
+'''
+print(calcular_cambio(8))
+>>> (1, 1, 1)   una de 5 cénts, una de 2 cénts y una de 1 cént.
+print(calcular_cambio(5))
+assert calcular_cambio(5) == [1,0,0]
+>>> (1, 0, 0)   una 5 cénts, ninguna de 2 cénts y ninguna de 1 cént.
+print(calcular_cambio())
+>>> (5, 2, 0)   cinco de 5 cénts, dos de 2 cénts y ninguna de 1 cént.
+print(calcular_cambio(0))
+>>> [0, 0, 0]  ninguna de 5 cénts, ninguna de 2 cénts y 1 de cénts.
+'''
