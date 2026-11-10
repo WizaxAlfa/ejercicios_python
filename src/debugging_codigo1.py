@@ -14,5 +14,6 @@ def remove_html_markup(s):
     return out
 if __name__ == "__main__":
     print (remove_html_markup('<a href=">">foo</a>'))
-    print (remove_html_markup('<"b">foo</b>'))
-    print (remove_html_markup('<a href=">">"foo"</a>'))
+    print (remove_html_markup("<b>foo</b>"))
+    print (remove_html_markup('"<a href=">">foo</a>"'))
+    print (remove_html_markup('<"b">foo</"b">'))
